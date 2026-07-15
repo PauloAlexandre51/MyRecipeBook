@@ -1,7 +1,5 @@
 ﻿using FluentMigrator.Runner;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using MyRecipeBook.Infrastructure.DataAccess;
 
 namespace MyRecipeBook.Infrastructure.Migrations;
 

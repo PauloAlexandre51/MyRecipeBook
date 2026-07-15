@@ -9,4 +9,10 @@ public class ResponseErrorJson
     {
         Errors = [error];
     }
+
+    public ResponseErrorJson(string error, bool tokenIsExpired)
+    {
+        Errors = [error];
+        TokenIsExpired = tokenIsExpired;
+    }
 }

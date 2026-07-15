@@ -61,6 +61,24 @@ namespace MyRecipeBook.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Access denied.
+        /// </summary>
+        public static string ACCESS_DENIED {
+            get {
+                return ResourceManager.GetString("ACCESS_DENIED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This request requires a token..
+        /// </summary>
+        public static string ACCESS_TOKEN_REQUIRED {
+            get {
+                return ResourceManager.GetString("ACCESS_TOKEN_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email must be valid.
         /// </summary>
         public static string EMAIL_INVALID {
@@ -88,6 +106,15 @@ namespace MyRecipeBook.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The password must be at least 6 characters long..
+        /// </summary>
+        public static string PASSWORD_MIN_LENGTH {
+            get {
+                return ResourceManager.GetString("PASSWORD_MIN_LENGTH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password cannot be empty.
         /// </summary>
         public static string PASSWORD_NOT_EMPTY {
@@ -106,11 +133,29 @@ namespace MyRecipeBook.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The current password provided is incorrect..
+        /// </summary>
+        public static string VALIDATION_CURRENT_PASSWORD {
+            get {
+                return ResourceManager.GetString("VALIDATION_CURRENT_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This email is already in use.
         /// </summary>
         public static string VALIDATION_EMAIL_ALREADY_EXISTS {
             get {
                 return ResourceManager.GetString("VALIDATION_EMAIL_ALREADY_EXISTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login invalid..
+        /// </summary>
+        public static string VALIDATION_LOGIN_INVALID {
+            get {
+                return ResourceManager.GetString("VALIDATION_LOGIN_INVALID", resourceCulture);
             }
         }
     }

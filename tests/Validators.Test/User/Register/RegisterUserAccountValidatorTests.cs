@@ -1,6 +1,5 @@
 ﻿using CommonTestUtilities.Requests;
 using MyRecipeBook.Application.UseCases.User.Register;
-using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Exception;
 using Shouldly;
 

@@ -1,30 +1,19 @@
 ﻿using CommonTestUtilities.Requests;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using MyRecipeBook.Domain.Extensions;
 using MyRecipeBook.Exception;
-using MyRecipeBook.Infrastructure.DataAccess;
 using Shouldly;
 using System.Net;
-using System.Net.Http.Json;
 using System.Text.Json;
 
 namespace WebApi.Test.User.Register;
 
-public class RegisterUserAccountUseCaseTests : IClassFixture<MyRecipeBookApplicationFactory>
+public class RegisterUserAccountTests : BaseIntegrationTest
 {
     private const string REQUEST_URI = "/api/users";
 
-    private readonly HttpClient _httpClient;
-
-    private readonly MyRecipeBookDbContext _dbContext;
-
-    public RegisterUserAccountUseCaseTests(MyRecipeBookApplicationFactory factory)
+    public RegisterUserAccountTests(MyRecipeBookApplicationFactory factory) : base(factory)
     {
-        _httpClient = factory.CreateClient();
-        var scope = factory.Services.CreateScope();
-
-        _dbContext = scope.ServiceProvider.GetRequiredService<MyRecipeBookDbContext>();
     }
 
     [Fact]
@@ -32,7 +21,7 @@ public class RegisterUserAccountUseCaseTests : IClassFixture<MyRecipeBookApplica
     {
         var request = RequestRegisterUserAccountJsonBuilder.Build();
 
-        var response = await _httpClient.PostAsJsonAsync(REQUEST_URI, request);
+        var response = await Post(REQUEST_URI, request);
 
         response.StatusCode.ShouldBe(HttpStatusCode.Created);
 
@@ -41,11 +30,11 @@ public class RegisterUserAccountUseCaseTests : IClassFixture<MyRecipeBookApplica
         var responeData = await JsonDocument.ParseAsync(responseBody);
 
         responeData.RootElement.GetProperty("name").GetString().ShouldBe(request.Name);
-        responeData.RootElement.GetProperty("tokens").GetProperty("accessToken").GetString().ShouldBeEmpty();
+        responeData.RootElement.GetProperty("tokens").GetProperty("accessToken").GetString().ShouldNotBeNull();
 
-        var user = await _dbContext.Users.FirstOrDefaultAsync(user => user.Name == request.Name);
+        var user = await DbContext.Users.FirstOrDefaultAsync(user => user.Name == request.Name);
 
-        var userExists = await _dbContext.Users.AnyAsync(user => 
+        var userExists = await DbContext.Users.AnyAsync(user => 
         user.Active 
         && user.Name.Equals(request.Name) 
         && user.Email.Equals(request.Email));
@@ -59,7 +48,7 @@ public class RegisterUserAccountUseCaseTests : IClassFixture<MyRecipeBookApplica
         var request = RequestRegisterUserAccountJsonBuilder.Build();
         request.Name = string.Empty;
 
-        var response = await _httpClient.PostAsJsonAsync(REQUEST_URI, request);
+        var response = await Post(REQUEST_URI, request);
 
         response.StatusCode.ShouldBe(HttpStatusCode.BadRequest);
 
@@ -77,7 +66,7 @@ public class RegisterUserAccountUseCaseTests : IClassFixture<MyRecipeBookApplica
             error.GetString()!.Equals(ResourceMessagesException.NAME_REQUIRED));
         });
 
-        var userExists = await _dbContext.Users.AnyAsync(user =>
+        var userExists = await DbContext.Users.AnyAsync(user =>
         user.Active
         && user.Name.Equals(request.Name)
         && user.Name.Equals(request.Email));

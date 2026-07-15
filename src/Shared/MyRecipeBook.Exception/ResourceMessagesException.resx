@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ACCESS_DENIED" xml:space="preserve">
+    <value>Access denied</value>
+  </data>
+  <data name="ACCESS_TOKEN_REQUIRED" xml:space="preserve">
+    <value>This request requires a token.</value>
+  </data>
   <data name="EMAIL_INVALID" xml:space="preserve">
     <value>Email must be valid</value>
   </data>
@@ -126,13 +132,22 @@
   <data name="NAME_REQUIRED" xml:space="preserve">
     <value>Name is required</value>
   </data>
+  <data name="PASSWORD_MIN_LENGTH" xml:space="preserve">
+    <value>The password must be at least 6 characters long.</value>
+  </data>
   <data name="PASSWORD_NOT_EMPTY" xml:space="preserve">
     <value>Password cannot be empty</value>
   </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Unknwon error</value>
   </data>
+  <data name="VALIDATION_CURRENT_PASSWORD" xml:space="preserve">
+    <value>The current password provided is incorrect.</value>
+  </data>
   <data name="VALIDATION_EMAIL_ALREADY_EXISTS" xml:space="preserve">
     <value>This email is already in use</value>
+  </data>
+  <data name="VALIDATION_LOGIN_INVALID" xml:space="preserve">
+    <value>Login invalid.</value>
   </data>
 </root>

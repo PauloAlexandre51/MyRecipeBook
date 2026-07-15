@@ -33,7 +33,7 @@ public class RegisterUserAccountUseCaseTests
 
         var exception = await useCase.Execute(request).ShouldThrowAsync<ErrorOnValidationException>();
 
-        exception.GetErrorsMessages().ShouldSatisfyAllConditions(errorMessages =>
+        exception.GetErrorMessages().ShouldSatisfyAllConditions(errorMessages =>
         {
             errorMessages.Count.ShouldBe(1);
             errorMessages.ShouldContain(ResourceMessagesException.VALIDATION_EMAIL_ALREADY_EXISTS);
@@ -50,7 +50,7 @@ public class RegisterUserAccountUseCaseTests
 
         var exception = await useCase.Execute(request).ShouldThrowAsync<ErrorOnValidationException>();
 
-        exception.GetErrorsMessages().ShouldSatisfyAllConditions(errorMessages =>
+        exception.GetErrorMessages().ShouldSatisfyAllConditions(errorMessages =>
         {
             errorMessages.Count.ShouldBe(1);
             errorMessages.ShouldContain(ResourceMessagesException.NAME_REQUIRED);
@@ -59,14 +59,15 @@ public class RegisterUserAccountUseCaseTests
 
     private RegisterUserAccountUseCase CreateUseCase(string? email = null)
     {
+        var accessTokenGeneratorBuilder = IAccessTokenGeneratorBuilder.Build();
         var unitOfWork = UnitOfWorkBuilder.Build();
         var writeRepository = UserWriteOnlyRepositoryBuilder.Build();
         var passwordHasher = new IPasswordHasherBuilder().Build();
-        var readRepositoryBuilder = new UserReadOnlyRepositoryBuilder();
+        var readRepositoryBuilder = new IUserReadOnlyRepositoryBuilder();
 
         if (!string.IsNullOrEmpty(email))
             readRepositoryBuilder.ExistActiveUserWithEmail(email);
 
-        return new RegisterUserAccountUseCase(passwordHasher, writeRepository, unitOfWork, readRepositoryBuilder.Build());
+        return new RegisterUserAccountUseCase(passwordHasher, writeRepository, unitOfWork, readRepositoryBuilder.Build(), accessTokenGeneratorBuilder);
     }
 }

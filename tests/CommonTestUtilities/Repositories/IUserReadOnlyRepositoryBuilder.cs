@@ -4,11 +4,11 @@ using MyRecipeBook.Domain.Repositories.User;
 
 namespace CommonTestUtilities.Repositories;
 
-public class UserReadOnlyRepositoryBuilder
+public class IUserReadOnlyRepositoryBuilder
 {
     private readonly Mock<IUserReadOnlyRepository> _repository;
 
-    public UserReadOnlyRepositoryBuilder() => _repository = new Mock<IUserReadOnlyRepository>();
+    public IUserReadOnlyRepositoryBuilder() => _repository = new Mock<IUserReadOnlyRepository>();
 
     public void ExistActiveUserWithEmail(string email)
     {
