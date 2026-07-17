@@ -123,11 +123,32 @@
   <data name="ACCESS_TOKEN_REQUIRED" xml:space="preserve">
     <value>This request requires a token.</value>
   </data>
+  <data name="COOKING_TIME_INVALID" xml:space="preserve">
+    <value>cooking time invalid</value>
+  </data>
+  <data name="DISH_TYPE_INVALID" xml:space="preserve">
+    <value>Dish type invalid</value>
+  </data>
   <data name="EMAIL_INVALID" xml:space="preserve">
     <value>Email must be valid</value>
   </data>
   <data name="EMAIL_REQUIRED" xml:space="preserve">
     <value>Email is required</value>
+  </data>
+  <data name="INGREDIENTS_REQUIRED" xml:space="preserve">
+    <value>at least one ingredient</value>
+  </data>
+  <data name="INGREDIENT_EMPTY" xml:space="preserve">
+    <value>ingredient empty</value>
+  </data>
+  <data name="INGREDIENT_MAX_LENGTH" xml:space="preserve">
+    <value>ingredient max length</value>
+  </data>
+  <data name="INSTRUCTIONS_ORDER_DUPLICATED" xml:space="preserve">
+    <value>instructions order duplicated</value>
+  </data>
+  <data name="INSTRUCTIONS_REQUIRED" xml:space="preserve">
+    <value>At least one instruction</value>
   </data>
   <data name="NAME_REQUIRED" xml:space="preserve">
     <value>Name is required</value>
@@ -137,6 +158,12 @@
   </data>
   <data name="PASSWORD_NOT_EMPTY" xml:space="preserve">
     <value>Password cannot be empty</value>
+  </data>
+  <data name="TITLE_MAX_LENGTH" xml:space="preserve">
+    <value>Title cannot exceed 100 characters.</value>
+  </data>
+  <data name="TITLE_REQUIRED" xml:space="preserve">
+    <value>Title is required.</value>
   </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Unknwon error</value>

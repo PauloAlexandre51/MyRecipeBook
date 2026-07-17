@@ -79,6 +79,24 @@ namespace MyRecipeBook.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to cooking time invalid.
+        /// </summary>
+        public static string COOKING_TIME_INVALID {
+            get {
+                return ResourceManager.GetString("COOKING_TIME_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dish type invalid.
+        /// </summary>
+        public static string DISH_TYPE_INVALID {
+            get {
+                return ResourceManager.GetString("DISH_TYPE_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email must be valid.
         /// </summary>
         public static string EMAIL_INVALID {
@@ -93,6 +111,51 @@ namespace MyRecipeBook.Exception {
         public static string EMAIL_REQUIRED {
             get {
                 return ResourceManager.GetString("EMAIL_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ingredient empty.
+        /// </summary>
+        public static string INGREDIENT_EMPTY {
+            get {
+                return ResourceManager.GetString("INGREDIENT_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ingredient max length.
+        /// </summary>
+        public static string INGREDIENT_MAX_LENGTH {
+            get {
+                return ResourceManager.GetString("INGREDIENT_MAX_LENGTH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to at least one ingredient.
+        /// </summary>
+        public static string INGREDIENTS_REQUIRED {
+            get {
+                return ResourceManager.GetString("INGREDIENTS_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to instructions order duplicated.
+        /// </summary>
+        public static string INSTRUCTIONS_ORDER_DUPLICATED {
+            get {
+                return ResourceManager.GetString("INSTRUCTIONS_ORDER_DUPLICATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to At least one instruction.
+        /// </summary>
+        public static string INSTRUCTIONS_REQUIRED {
+            get {
+                return ResourceManager.GetString("INSTRUCTIONS_REQUIRED", resourceCulture);
             }
         }
         
@@ -120,6 +183,24 @@ namespace MyRecipeBook.Exception {
         public static string PASSWORD_NOT_EMPTY {
             get {
                 return ResourceManager.GetString("PASSWORD_NOT_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title cannot exceed 100 characters..
+        /// </summary>
+        public static string TITLE_MAX_LENGTH {
+            get {
+                return ResourceManager.GetString("TITLE_MAX_LENGTH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title is required..
+        /// </summary>
+        public static string TITLE_REQUIRED {
+            get {
+                return ResourceManager.GetString("TITLE_REQUIRED", resourceCulture);
             }
         }
         
